@@ -15,11 +15,12 @@ bool hasDuplicates(int values[], int size);
 int main() {
 
 	const int SIZE = 6;
-	int numbers[SIZE] = { 1, 2, 2, 4, 6, 7 }; // test
+	int numbers[SIZE];
 
-
-
-
+	for (int i = 0; i < SIZE; i++) {
+		cout << "Enter integer #" << i << ": ";
+		cin >> numbers[i];
+	}
 
 	if (isSortedIncreasing(numbers, SIZE)) {
 		cout << "The data are increasing." << endl;
@@ -37,14 +38,15 @@ int main() {
 
 	}
 	cout << endl;
+
 	if (hasAdjacentDuplicates(numbers, SIZE)) {
 		cout << "The data has adjcaent duplicates." << endl;
 	}
 	else {
 		cout << "The data does not have adjacent duplicates." << endl;
-
+	}
 		cout << endl;
-
+		
 		if (hasDuplicates(numbers, SIZE)) {
 			cout << "The data has duplicates." << endl;
 		}
@@ -53,7 +55,7 @@ int main() {
 
 		}
 	}
-}
+
 	bool isSortedIncreasing(int values[], int size) {
 
 		for (int i = 0; i < size - 1; i++) {
@@ -62,37 +64,34 @@ int main() {
 				return false;
 
 			}
-			else {
-				return true;
-			}
 		}
+				return true;
 	}
+	
+	
 
 	
 	bool isSortedDecreasing(int values[], int size){
 
 		for (int i = 0; i < size - 1; i++) {
 
-			if (values[i] < values[i+1]) {
-				return false; //had to fix how I did this part from last commit
-			}
-			else {
-				return true;
+			if (values[i] < values[i + 1]) {
+				return false; //had to fix it again but should be good now. curly brackets were all over
 			}
 		}
-	}
+				return true;
+			}
+
 	bool hasAdjacentDuplicates(int values[], int size){
 		for (int i = 0; i < size - 1; i++) {
 			if (values[i] == values[i + 1]) {
 				return true;
 			}
-			else {
+		}
 				return false;
 			}
-		}
 
 
-	}
 	
 	bool hasDuplicates(int values[], int size) {
 		for (int i = 0; i < size - 1; i++) {
@@ -100,11 +99,12 @@ int main() {
 				if (values[i] == values[j]) {
 					return true;
 				}
-				else {
-					return false;
-				}
 			}
 		}
+					return false;
+				}
+			
 
 
-	}
+
+	
