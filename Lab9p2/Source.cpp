@@ -6,13 +6,13 @@ using namespace std;
 
 bool isSortedIncreasing(int values[], int size);
 
-
+bool isSortedDecreasing(int values[], int size);
 
 int main() {
 
 	const int SIZE = 6;
 	int numbers[SIZE] = { 1, 2, 2, 4, 6, 7 }; // test
-	
+
 	if (isSortedIncreasing(numbers, SIZE)) {
 		cout << "The data are increasing." << endl;
 	}
@@ -21,21 +21,38 @@ int main() {
 	}
 	cout << endl;
 
+	if (isSortedDecreasing(numbers, SIZE)) {
+		cout << "The data are decreasing." << endl;
+	}
+	else {
+		cout << "The data are not decreasing." << endl;
 
-
+	}
 }
 
+	bool isSortedIncreasing(int values[], int size) {
 
-bool isSortedIncreasing(int values[], int size) {
-	
-	for (int i = 0; i < size - 1; i++) {
+		for (int i = 0; i < size - 1; i++) {
 
-		if (values[i] > values[i + 1]) {
-			int sorted = false;
-			break;
+			if (values[i] > values[i + 1]) {
+				return false;
+			
+			}
+			else {
+				return true;
+			}
 		}
-		else {
-		int sorted = true;
 	}
+	
+	bool isSortedDecreasing(int values[], int size) {
+
+		for (int i = 0; i < size - 1; i++) {
+
+			if (values[i] < values[i+1]) {
+				return false; //had to fix how I did this part from last commit
+			}
+			else {
+				return true;
+			}
+		}
 	}
-}
